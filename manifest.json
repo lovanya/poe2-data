@@ -1,0 +1,9 @@
+{
+  "latest_version": 1,
+  "schema_version": 1,
+  "compatible_app_versions": ["1.0.0"],
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v1/patch_v1.zip",
+  "package_size": 0,
+  "md5": "",
+  "changelog": "初始版本"
+}
