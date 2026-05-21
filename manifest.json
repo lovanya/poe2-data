@@ -1,0 +1,11 @@
+{
+  "latest_version": 2,
+  "schema_version": 1,
+  "compatible_app_versions": [
+    "1.0.0"
+  ],
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v2/patch_v2.zip",
+  "package_size": 3434,
+  "md5": "6331B0C261AB4F750510F084765FEC6F",
+  "changelog": "v2 incremental update - new unique items, gems, affixes, passives"
+}
