@@ -1,9 +1,7 @@
 {
   "latest_version": 2,
   "schema_version": 1,
-  "compatible_app_versions": [
-    "1.0.0"
-  ],
+  "compatible_app_versions": ["1.0.0"],
   "download_url": "https://github.com/lovanya/poe2-data/releases/download/v2/patch_v2.zip",
   "package_size": 3430,
   "md5": "32AC73594E5028A6E55799A9ACB3A5DD",
