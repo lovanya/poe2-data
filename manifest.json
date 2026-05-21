@@ -1,9 +1,11 @@
 {
   "latest_version": 2,
   "schema_version": 1,
-  "compatible_app_versions": ["1.0.0"],
+  "compatible_app_versions": [
+    "1.0.0"
+  ],
   "download_url": "https://github.com/lovanya/poe2-data/releases/download/v2/patch_v2.zip",
   "package_size": 3430,
   "md5": "32AC73594E5028A6E55799A9ACB3A5DD",
-  "changelog": "v2 增量更新 - 新增暗金武器(风暴召唤者/虚空行者/生命守护)、新技能宝石(闪电打击/虚空蛇影)、新词缀、天赋树更新"
+  "changelog": "v2 incremental update - new unique items, gems, affixes, passives"
 }
