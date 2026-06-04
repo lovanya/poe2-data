@@ -1,11 +1,12 @@
 {
-  "latest_version": 2,
+  "latest_version": "v3.0.0",
   "schema_version": 1,
   "compatible_app_versions": [
     "1.0.0"
   ],
-  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v2/patch_v2.zip",
-  "package_size": 3434,
-  "md5": "6331B0C261AB4F750510F084765FEC6F",
-  "changelog": "v2 incremental update - new unique items, gems, affixes, passives"
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.0.0/data_full.zip",
+  "package_size": 2157732,
+  "integrity_hash": "7db8f6189a2a89baec14fb5c09c30cfdbd5373ed1a6fc71bf98dc47f5f65de0b",
+  "changelog": "v3.0.0: real POE2 data from caimogu.cc planner (5154 items, 1281 gems, 8088 affixes, 462 currencies, 8 classes, 23 ascendancies)",
+  "published_at": "2026-06-04T15:54:45.493824Z"
 }
