@@ -1,12 +1,12 @@
 {
-  "latest_version": "v3.0.0",
+  "latest_version": "v3.1.0",
   "schema_version": 1,
   "compatible_app_versions": [
     "1.0.0"
   ],
-  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.0.0/data_full.zip",
-  "package_size": 2157732,
-  "integrity_hash": "7db8f6189a2a89baec14fb5c09c30cfdbd5373ed1a6fc71bf98dc47f5f65de0b",
-  "changelog": "v3.0.0: real POE2 data from caimogu.cc planner (5154 items, 1281 gems, 8088 affixes, 462 currencies, 8 classes, 23 ascendancies)",
-  "published_at": "2026-06-04T15:54:45.493824Z"
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.1.0/data_full.zip",
+  "package_size": 4166699,
+  "integrity_hash": "73238c775b027346a87237baab15a7dabc1f5cdb03b83424ccbb2b1d69bec1b3",
+  "changelog": "v3.1.0: add gem level data (200 gems x 40 levels), affix translations, item flavour text. 8088 affixes, 8000 gem level entries, 98040 gem level stats",
+  "published_at": "2026-06-04T16:12:20.264066Z"
 }
