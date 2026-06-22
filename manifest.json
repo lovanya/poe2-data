@@ -1,18 +1,17 @@
 {
-  "latest_version": "v3.2.0",
+  "latest_version": "v0.0.1",
   "schema_version": "1.0",
   "contents": [
-    "data/poe2.db",
-    "data/update.sql"
+    "data/poe2.db"
   ],
   "compatible_app_versions": [
-    "1.0.0"
+    "0.0.1"
   ],
-  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.2.0/data_full.zip",
-  "package_size": 4166719,
-  "integrity_hash": "5eb6a8dd2454aaa2a571e4c2edf496d73a1ce89fcce44b38b44dbb7d6a54cbf3",
-  "changelog": "add embedded schema spec to manifest; nested paths (data/poe2.db)",
-  "published_at": "2026-06-22T17:17:33.000000Z",
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v0.0.1/data_full.zip",
+  "package_size": 6101,
+  "integrity_hash": "2254baad69ce952254e3cce62061779a100a1d87c59bbd3081c33a15e4b230a5",
+  "changelog": "first public release (seed data)",
+  "published_at": "2026-06-22T17:50:14.922201Z",
   "spec": {
     "version": "1.0",
     "minAppVersion": "1.0.0",
