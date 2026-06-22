@@ -20,7 +20,7 @@
         "path": "/",
         "type": "root",
         "required": true,
-        "description": "zip 鏍圭洰褰曪紝鍖呭惈 data/ 鍜?media/ 涓や釜瀛愮洰褰曚互鍙?manifest.json",
+        "description": "zip 根目录，包含 data/ 和 media/ 两个子目录以及 manifest.json",
         "allowedContents": [
           "data/",
           "media/",
@@ -31,7 +31,7 @@
         "path": "data/",
         "type": "directory",
         "required": true,
-        "description": "鏁版嵁鐩綍锛屽瓨鏀炬暟鎹簱鏂囦欢銆丼QL 鑴氭湰鍜岀粨鏋勫寲鏁版嵁锛堝 passives.json锛?,
+        "description": "数据目录，存放数据库文件、SQL 脚本和结构化数据（如 passives.json）",
         "allowedContents": [
           "poe2.db",
           "*.sql",
@@ -42,7 +42,7 @@
         "path": "media/",
         "type": "directory",
         "required": false,
-        "description": "濯掍綋璧勬簮鐩綍锛屽寘鍚?data/ icons/ videos/ images/ 鍥涗釜瀛愮洰褰?,
+        "description": "媒体资源目录，包含 data/ icons/ videos/ images/ 四个子目录",
         "allowedContents": [
           "data/",
           "icons/",
@@ -54,7 +54,7 @@
         "path": "media/data/",
         "type": "directory",
         "required": false,
-        "description": "閫氱敤璧勬簮鐩綍锛屽瓨鏀句笉灞炰簬 icons/videos/images 鐨勫叾浠栨枃浠讹紙濡?pdf/docx/xlsx/txt 绛夛級",
+        "description": "通用资源目录，存放不属于 icons/videos/images 的其他文件（如 pdf/docx/xlsx/txt 等）",
         "allowedContents": [
           "*"
         ]
@@ -63,7 +63,7 @@
         "path": "media/icons/",
         "type": "directory",
         "required": false,
-        "description": "鍥炬爣璧勬簮鐩綍锛屼粎鍏佽 png/webp/svg 鏍煎紡",
+        "description": "图标资源目录，仅允许 png/webp/svg 格式",
         "allowedContents": [
           "*.png",
           "*.webp",
@@ -75,7 +75,7 @@
         "path": "media/videos/",
         "type": "directory",
         "required": false,
-        "description": "瑙嗛璧勬簮鐩綍锛屼粎鍏佽 mp4/webm 鏍煎紡",
+        "description": "视频资源目录，仅允许 mp4/webm 格式",
         "allowedContents": [
           "*.mp4",
           "*.webm"
@@ -86,7 +86,7 @@
         "path": "media/images/",
         "type": "directory",
         "required": false,
-        "description": "鍥剧墖璧勬簮鐩綍锛屼粎鍏佽 png/webp/svg/jpg 鏍煎紡",
+        "description": "图片资源目录，仅允许 png/webp/svg/jpg 格式",
         "allowedContents": [
           "*.png",
           "*.webp",
@@ -102,7 +102,7 @@
         "path": "data/poe2.db",
         "kind": "sqlite",
         "required": false,
-        "description": "瀹屾暣鏁版嵁搴撳揩鐓э紝浣嶄簬 data/ 鐩綍锛涙柊瀹夎鎴栧叏閲忔浛鎹㈡椂鍖呭惈姝ゆ枃浠讹紱app 瑙ｅ帇鍚庡師瀛愭浛鎹㈠埌 data/poe2.db",
+        "description": "完整数据库快照，位于 data/ 目录；新安装或全量替换时包含此文件；app 解压后原子替换到 data/poe2.db",
         "contentType": "sqlite(database)",
         "maxSizeBytes": 52428800,
         "hashRequired": true,
@@ -112,7 +112,7 @@
         "path": "data/update.sql",
         "kind": "sql",
         "required": false,
-        "description": "澧為噺 SQL 鑴氭湰锛屼綅浜?data/ 鐩綍锛涗粠鏃х増鏈崌绾ф椂鍖呭惈姝ゆ枃浠讹紱app 璇诲彇鍚庡湪浜嬪姟涓€愭潯鎵ц锛屼笉淇濈暀涓烘枃浠?,
+        "description": "增量 SQL 脚本，位于 data/ 目录；从旧版本升级时包含此文件；app 读取后在事务中逐条执行，不保留为文件",
         "contentType": "sql(delta)",
         "maxSizeBytes": 10485760,
         "hashRequired": true,
@@ -122,7 +122,7 @@
         "path": "data/passives.json",
         "kind": "json",
         "required": false,
-        "description": "澶╄祴鏍戞暟鎹紝浣嶄簬 data/ 鐩綍锛涢€氳繃 $schema 瀛楁寮曠敤 passive_tree.schema.json 绾︽潫鍏蜂綋缁撴瀯",
+        "description": "天赋树数据，位于 data/ 目录；通过 $schema 字段引用 passive_tree.schema.json 约束具体结构",
         "contentType": "json(passive-tree)",
         "versioned": true,
         "maxSizeBytes": 5242880,
@@ -131,7 +131,7 @@
             "name": "$schema",
             "type": "string",
             "required": false,
-            "description": "鎸囧悜 GitHub 绾夸笂鐨?JSON Schema 鏂囦欢,濡?https://github.com/lovanya/poe2-data/releases/download/v3.2.0/passive_tree.schema.json",
+            "description": "指向 GitHub 线上的 JSON Schema 文件,如 https://github.com/lovanya/poe2-data/releases/download/v3.2.0/passive_tree.schema.json",
             "pattern": "^https://github\\.com/.*/releases/download/.*\\.schema\\.json$"
           }
         ]
@@ -140,7 +140,7 @@
         "path": "media/data/",
         "kind": "directory",
         "required": false,
-        "description": "閫氱敤璧勬簮鐩綍锛屽瓨鏀?pdf/docx/xlsx/txt 绛変笉灞炰簬 icons/videos/images 鐨勫叾浠栨枃浠?,
+        "description": "通用资源目录，存放 pdf/docx/xlsx/txt 等不属于 icons/videos/images 的其他文件",
         "pattern": "media/data/*",
         "contentType": "misc",
         "minCount": 0,
@@ -150,7 +150,7 @@
         "path": "media/icons/",
         "kind": "directory",
         "required": false,
-        "description": "鍥炬爣璧勬簮鐩綍锛屼綅浜?media/icons/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/icons/ 鐩綍",
+        "description": "图标资源目录，位于 media/icons/；app 解压后递归复制到 media/icons/ 目录",
         "pattern": "media/icons/*.{png,webp,svg}",
         "contentType": "image(icon)",
         "minCount": 1,
@@ -160,7 +160,7 @@
         "path": "media/videos/",
         "kind": "directory",
         "required": false,
-        "description": "瑙嗛璧勬簮鐩綍锛屼綅浜?media/videos/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/videos/ 鐩綍",
+        "description": "视频资源目录，位于 media/videos/；app 解压后递归复制到 media/videos/ 目录",
         "pattern": "media/videos/*.{mp4,webm}",
         "contentType": "video",
         "minCount": 0,
@@ -170,7 +170,7 @@
         "path": "media/images/",
         "kind": "directory",
         "required": false,
-        "description": "鍥剧墖璧勬簮鐩綍锛屼綅浜?media/images/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/images/ 鐩綍",
+        "description": "图片资源目录，位于 media/images/；app 解压后递归复制到 media/images/ 目录",
         "pattern": "media/images/*.{png,webp,svg,jpg,jpeg}",
         "contentType": "image",
         "minCount": 0,
