@@ -1,12 +1,1386 @@
 {
-  "latest_version": "v3.1.0",
-  "schema_version": 1,
+  "latest_version": "v3.2.0",
+  "schema_version": "1.0",
+  "contents": [
+    "data/poe2.db",
+    "data/update.sql"
+  ],
   "compatible_app_versions": [
     "1.0.0"
   ],
-  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.1.0/data_full.zip",
-  "package_size": 4166699,
-  "integrity_hash": "73238c775b027346a87237baab15a7dabc1f5cdb03b83424ccbb2b1d69bec1b3",
-  "changelog": "v3.1.0: add gem level data (200 gems x 40 levels), affix translations, item flavour text. 8088 affixes, 8000 gem level entries, 98040 gem level stats",
-  "published_at": "2026-06-04T16:12:20.264066Z"
+  "download_url": "https://github.com/lovanya/poe2-data/releases/download/v3.2.0/data_full.zip",
+  "package_size": 4166719,
+  "integrity_hash": "5eb6a8dd2454aaa2a571e4c2edf496d73a1ce89fcce44b38b44dbb7d6a54cbf3",
+  "changelog": "add embedded schema spec to manifest; nested paths (data/poe2.db)",
+  "published_at": "2026-06-22T17:17:33.000000Z",
+  "spec": {
+    "version": "1.0",
+    "minAppVersion": "1.0.0",
+    "directoryStructure": [
+      {
+        "path": "/",
+        "type": "root",
+        "required": true,
+        "description": "zip 鏍圭洰褰曪紝鍖呭惈 data/ 鍜?media/ 涓や釜瀛愮洰褰曚互鍙?manifest.json",
+        "allowedContents": [
+          "data/",
+          "media/",
+          "manifest.json"
+        ]
+      },
+      {
+        "path": "data/",
+        "type": "directory",
+        "required": true,
+        "description": "鏁版嵁鐩綍锛屽瓨鏀炬暟鎹簱鏂囦欢銆丼QL 鑴氭湰鍜岀粨鏋勫寲鏁版嵁锛堝 passives.json锛?,
+        "allowedContents": [
+          "poe2.db",
+          "*.sql",
+          "*.json"
+        ]
+      },
+      {
+        "path": "media/",
+        "type": "directory",
+        "required": false,
+        "description": "濯掍綋璧勬簮鐩綍锛屽寘鍚?data/ icons/ videos/ images/ 鍥涗釜瀛愮洰褰?,
+        "allowedContents": [
+          "data/",
+          "icons/",
+          "videos/",
+          "images/"
+        ]
+      },
+      {
+        "path": "media/data/",
+        "type": "directory",
+        "required": false,
+        "description": "閫氱敤璧勬簮鐩綍锛屽瓨鏀句笉灞炰簬 icons/videos/images 鐨勫叾浠栨枃浠讹紙濡?pdf/docx/xlsx/txt 绛夛級",
+        "allowedContents": [
+          "*"
+        ]
+      },
+      {
+        "path": "media/icons/",
+        "type": "directory",
+        "required": false,
+        "description": "鍥炬爣璧勬簮鐩綍锛屼粎鍏佽 png/webp/svg 鏍煎紡",
+        "allowedContents": [
+          "*.png",
+          "*.webp",
+          "*.svg"
+        ],
+        "filePattern": "media/icons/*.{png,webp,svg}"
+      },
+      {
+        "path": "media/videos/",
+        "type": "directory",
+        "required": false,
+        "description": "瑙嗛璧勬簮鐩綍锛屼粎鍏佽 mp4/webm 鏍煎紡",
+        "allowedContents": [
+          "*.mp4",
+          "*.webm"
+        ],
+        "filePattern": "media/videos/*.{mp4,webm}"
+      },
+      {
+        "path": "media/images/",
+        "type": "directory",
+        "required": false,
+        "description": "鍥剧墖璧勬簮鐩綍锛屼粎鍏佽 png/webp/svg/jpg 鏍煎紡",
+        "allowedContents": [
+          "*.png",
+          "*.webp",
+          "*.svg",
+          "*.jpg",
+          "*.jpeg"
+        ],
+        "filePattern": "media/images/*.{png,webp,svg,jpg,jpeg}"
+      }
+    ],
+    "files": [
+      {
+        "path": "data/poe2.db",
+        "kind": "sqlite",
+        "required": false,
+        "description": "瀹屾暣鏁版嵁搴撳揩鐓э紝浣嶄簬 data/ 鐩綍锛涙柊瀹夎鎴栧叏閲忔浛鎹㈡椂鍖呭惈姝ゆ枃浠讹紱app 瑙ｅ帇鍚庡師瀛愭浛鎹㈠埌 data/poe2.db",
+        "contentType": "sqlite(database)",
+        "maxSizeBytes": 52428800,
+        "hashRequired": true,
+        "hashAlgorithm": "SHA-256"
+      },
+      {
+        "path": "data/update.sql",
+        "kind": "sql",
+        "required": false,
+        "description": "澧為噺 SQL 鑴氭湰锛屼綅浜?data/ 鐩綍锛涗粠鏃х増鏈崌绾ф椂鍖呭惈姝ゆ枃浠讹紱app 璇诲彇鍚庡湪浜嬪姟涓€愭潯鎵ц锛屼笉淇濈暀涓烘枃浠?,
+        "contentType": "sql(delta)",
+        "maxSizeBytes": 10485760,
+        "hashRequired": true,
+        "hashAlgorithm": "SHA-256"
+      },
+      {
+        "path": "data/passives.json",
+        "kind": "json",
+        "required": false,
+        "description": "澶╄祴鏍戞暟鎹紝浣嶄簬 data/ 鐩綍锛涢€氳繃 $schema 瀛楁寮曠敤 passive_tree.schema.json 绾︽潫鍏蜂綋缁撴瀯",
+        "contentType": "json(passive-tree)",
+        "versioned": true,
+        "maxSizeBytes": 5242880,
+        "contentSchema": [
+          {
+            "name": "$schema",
+            "type": "string",
+            "required": false,
+            "description": "鎸囧悜 GitHub 绾夸笂鐨?JSON Schema 鏂囦欢,濡?https://github.com/lovanya/poe2-data/releases/download/v3.2.0/passive_tree.schema.json",
+            "pattern": "^https://github\\.com/.*/releases/download/.*\\.schema\\.json$"
+          }
+        ]
+      },
+      {
+        "path": "media/data/",
+        "kind": "directory",
+        "required": false,
+        "description": "閫氱敤璧勬簮鐩綍锛屽瓨鏀?pdf/docx/xlsx/txt 绛変笉灞炰簬 icons/videos/images 鐨勫叾浠栨枃浠?,
+        "pattern": "media/data/*",
+        "contentType": "misc",
+        "minCount": 0,
+        "maxCount": 100
+      },
+      {
+        "path": "media/icons/",
+        "kind": "directory",
+        "required": false,
+        "description": "鍥炬爣璧勬簮鐩綍锛屼綅浜?media/icons/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/icons/ 鐩綍",
+        "pattern": "media/icons/*.{png,webp,svg}",
+        "contentType": "image(icon)",
+        "minCount": 1,
+        "maxCount": 500
+      },
+      {
+        "path": "media/videos/",
+        "kind": "directory",
+        "required": false,
+        "description": "瑙嗛璧勬簮鐩綍锛屼綅浜?media/videos/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/videos/ 鐩綍",
+        "pattern": "media/videos/*.{mp4,webm}",
+        "contentType": "video",
+        "minCount": 0,
+        "maxCount": 100
+      },
+      {
+        "path": "media/images/",
+        "kind": "directory",
+        "required": false,
+        "description": "鍥剧墖璧勬簮鐩綍锛屼綅浜?media/images/锛沘pp 瑙ｅ帇鍚庨€掑綊澶嶅埗鍒?media/images/ 鐩綍",
+        "pattern": "media/images/*.{png,webp,svg,jpg,jpeg}",
+        "contentType": "image",
+        "minCount": 0,
+        "maxCount": 500
+      }
+    ],
+    "datastores": [
+      {
+        "name": "main",
+        "backend": "sqlite",
+        "engineVersion": "3.40",
+        "encoding": "UTF-8",
+        "backendOptions": {
+          "journal_mode": "WAL",
+          "synchronous": "NORMAL",
+          "foreign_keys": true
+        },
+        "tables": [
+          {
+            "name": "t_meta_version",
+            "description": "metadata for the data version (single-row)",
+            "columns": [
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "version",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "updated_at",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              }
+            ]
+          },
+          {
+            "name": "t_item",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "item_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "base_type",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "rarity",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "normal",
+                  "magic",
+                  "rare",
+                  "unique"
+                ]
+              },
+              {
+                "name": "category",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "weapon",
+                  "armour",
+                  "accessory",
+                  "flask",
+                  "jewel",
+                  "currency",
+                  "divination_card",
+                  "map",
+                  "gem",
+                  "other"
+                ]
+              },
+              {
+                "name": "level_req",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "1"
+              },
+              {
+                "name": "item_level",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "1"
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              },
+              {
+                "name": "flavour_text",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "icon_url",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "uniqueKeys": [
+              "item_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_item_category",
+                "columns": [
+                  "category"
+                ]
+              },
+              {
+                "name": "idx_item_rarity",
+                "columns": [
+                  "rarity"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_item_modifier",
+            "columns": [
+              {
+                "name": "modifier_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "item_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_item(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "type",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "modifier_text",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_im_item",
+                "columns": [
+                  "item_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_item_tag",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "item_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_item(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "tag",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "item_id",
+              "tag"
+            ]
+          },
+          {
+            "name": "t_item_requirement",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "item_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_item(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "stat",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "value",
+                "type": "INTEGER",
+                "nullable": false
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_ir_item",
+                "columns": [
+                  "item_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_gem",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "gem_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "type",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "active",
+                  "support"
+                ]
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "base_level_req",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "1"
+              },
+              {
+                "name": "base_mana_cost",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "10"
+              },
+              {
+                "name": "supports_tags",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "uniqueKeys": [
+              "gem_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_gem_type",
+                "columns": [
+                  "type"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_gem_level_data",
+            "columns": [
+              {
+                "name": "row_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "gem_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_gem(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "level",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "level_req",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "mana_cost",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "str_req",
+                "type": "INTEGER",
+                "nullable": true
+              },
+              {
+                "name": "dex_req",
+                "type": "INTEGER",
+                "nullable": true
+              },
+              {
+                "name": "int_req",
+                "type": "INTEGER",
+                "nullable": true
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_gld_gem",
+                "columns": [
+                  "gem_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_gem_level_stat",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "row_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_gem_level_data(row_id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "stat_text",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_gls_row",
+                "columns": [
+                  "row_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_gem_tag",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "gem_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_gem(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "tag",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "gem_id",
+              "tag"
+            ]
+          },
+          {
+            "name": "t_class",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "class_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "icon_url",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "primary_stat",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "strength",
+                  "dexterity",
+                  "intelligence"
+                ]
+              },
+              {
+                "name": "weapon",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "play_style",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "class_id"
+            ]
+          },
+          {
+            "name": "t_ascendancy",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "ascendancy_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "class_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_class(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "icon_url",
+                "type": "TEXT",
+                "nullable": true
+              }
+            ],
+            "uniqueKeys": [
+              "ascendancy_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_asc_class",
+                "columns": [
+                  "class_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_act",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "act_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "act_number",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "order",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "is_interlude",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              },
+              {
+                "name": "level_range",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              }
+            ],
+            "uniqueKeys": [
+              "act_id"
+            ]
+          },
+          {
+            "name": "t_zone",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "zone_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "act_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_act(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "level_min",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "1"
+              },
+              {
+                "name": "level_max",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "1"
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              },
+              {
+                "name": "boss",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "image_url",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "video_url",
+                "type": "TEXT",
+                "nullable": true
+              }
+            ],
+            "uniqueKeys": [
+              "zone_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_zone_act",
+                "columns": [
+                  "act_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_zone_reward",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "zone_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_zone(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "reward_text",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_zr_zone",
+                "columns": [
+                  "zone_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_zone_key_item",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "zone_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_zone(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "type",
+                "type": "TEXT",
+                "nullable": false,
+                "default": "quest",
+                "enumValues": [
+                  "quest",
+                  "key"
+                ]
+              },
+              {
+                "name": "item_id",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_zki_zone",
+                "columns": [
+                  "zone_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_quest",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "quest_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "zone_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_zone(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "act_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_act(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "zone_name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "title",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "type",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "main",
+                  "side"
+                ]
+              },
+              {
+                "name": "npc",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              },
+              {
+                "name": "video_url",
+                "type": "TEXT",
+                "nullable": true
+              }
+            ],
+            "uniqueKeys": [
+              "quest_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_quest_act",
+                "columns": [
+                  "act_id"
+                ]
+              },
+              {
+                "name": "idx_quest_zone",
+                "columns": [
+                  "zone_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_quest_objective",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "quest_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_quest(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "objective_text",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_qo_quest",
+                "columns": [
+                  "quest_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_quest_reward",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "quest_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_quest(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "reward_text",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_qr_quest",
+                "columns": [
+                  "quest_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_quest_key_item",
+            "columns": [
+              {
+                "name": "item_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "quest_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_quest(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "item_id",
+              "quest_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_qki_quest",
+                "columns": [
+                  "quest_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_affix",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "affix_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "type",
+                "type": "TEXT",
+                "nullable": false,
+                "enumValues": [
+                  "prefix",
+                  "suffix"
+                ]
+              },
+              {
+                "name": "group_name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "affix_id"
+            ],
+            "indexes": [
+              {
+                "name": "idx_affix_type",
+                "columns": [
+                  "type"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_affix_tier",
+            "columns": [
+              {
+                "name": "row_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "affix_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_affix(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "tier",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "level_requirement",
+                "type": "INTEGER",
+                "nullable": false
+              },
+              {
+                "name": "value",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "indexes": [
+              {
+                "name": "idx_at_affix",
+                "columns": [
+                  "affix_id"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "t_affix_slot_map",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "affix_id",
+                "type": "INTEGER",
+                "nullable": false,
+                "references": "t_affix(id)",
+                "onDelete": "CASCADE"
+              },
+              {
+                "name": "slot",
+                "type": "TEXT",
+                "nullable": false
+              }
+            ],
+            "uniqueKeys": [
+              "affix_id",
+              "slot"
+            ]
+          },
+          {
+            "name": "t_currency",
+            "columns": [
+              {
+                "name": "id",
+                "type": "INTEGER",
+                "nullable": false,
+                "autoIncrement": true
+              },
+              {
+                "name": "currency_id",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "name",
+                "type": "TEXT",
+                "nullable": false
+              },
+              {
+                "name": "description",
+                "type": "TEXT",
+                "nullable": false,
+                "default": ""
+              },
+              {
+                "name": "icon_url",
+                "type": "TEXT",
+                "nullable": true
+              },
+              {
+                "name": "sort_order",
+                "type": "INTEGER",
+                "nullable": false,
+                "default": "0"
+              }
+            ],
+            "uniqueKeys": [
+              "currency_id"
+            ]
+          }
+        ],
+        "description": "primary relational store for game data; SQLite 3.40+ required for generated columns & window functions"
+      }
+    ],
+    "manifestFields": [
+      {
+        "key": "latest_version",
+        "type": "string",
+        "required": true,
+        "description": "package semver, e.g. v3.1.0",
+        "pattern": "^v\\d+\\.\\d+\\.\\d+(-\\w+)?$"
+      },
+      {
+        "key": "schema_version",
+        "type": "string",
+        "required": true,
+        "description": "schema MAJOR.MINOR this package conforms to",
+        "pattern": "^\\d+\\.\\d+$"
+      },
+      {
+        "key": "contents",
+        "type": "stringList",
+        "required": true,
+        "description": "list of file paths included in this package (e.g. [\"poe2.db\",\"update.sql\"]); must match files declared in schema"
+      },
+      {
+        "key": "compatible_app_versions",
+        "type": "stringList",
+        "required": false,
+        "description": "app versions allowed to install this package; empty = any",
+        "pattern": "^\\d+\\.\\d+\\.\\d+$"
+      },
+      {
+        "key": "download_url",
+        "type": "string",
+        "required": true,
+        "description": "URL to download the package ZIP",
+        "pattern": "^https://github\\.com/.*/releases/download/.*\\.zip$"
+      },
+      {
+        "key": "package_size",
+        "type": "integer",
+        "required": true,
+        "description": "package size in bytes"
+      },
+      {
+        "key": "integrity_hash",
+        "type": "string",
+        "required": true,
+        "description": "SHA-256 of the package ZIP, hex (case-insensitive)",
+        "pattern": "^[A-Fa-f0-9]{64}$",
+        "dependsOn": [
+          "download_url"
+        ]
+      },
+      {
+        "key": "changelog",
+        "type": "string",
+        "required": false,
+        "description": "human-readable change notes"
+      },
+      {
+        "key": "published_at",
+        "type": "string",
+        "required": true,
+        "description": "ISO 8601 timestamp of publication",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}",
+        "dependsOn": [
+          "latest_version"
+        ]
+      },
+      {
+        "key": "spec",
+        "type": "string",
+        "required": false,
+        "description": "inline schema spec JSON for offline validation by app"
+      }
+    ],
+    "package": {
+      "maxTotalSizeBytes": 104857600,
+      "maxCompressionRatio": 20.0,
+      "maxTotalUncompressedBytes": 524288000,
+      "forbiddenExtraFiles": [
+        ".gitkeep",
+        ".DS_Store",
+        "Thumbs.db"
+      ],
+      "allowedExtensions": [
+        "db",
+        "sql",
+        "json",
+        "png",
+        "webp",
+        "svg",
+        "mp4",
+        "webm",
+        "jpg",
+        "jpeg"
+      ]
+    },
+    "referentialIntegrity": [
+      {
+        "type": "eachEntryRequiresFile",
+        "source": "data/passives.json",
+        "sourceField": "icon",
+        "target": "media/icons/*",
+        "description": "every passive node in passives.json must have a corresponding icon in media/icons/"
+      }
+    ],
+    "notes": "v1.0 baseline: 23 tables in main SQLite store. Schema is the complete package contract - shared between crawler (produces packages) and app (consumes them). No producer-specific implementation details (sources/mappings/pipeline) are included; both sides derive their behavior from the structural spec."
+  }
 }
